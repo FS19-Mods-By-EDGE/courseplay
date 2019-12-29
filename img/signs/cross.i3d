@@ -8,6 +8,7 @@
   <Files>
     <File fileId="4" filename="$data/shaders/buildingShader.xml"/>
     <File fileId="1" filename="textures/CourseplaySigns_diffuse.dds"/>
+    <File fileId="5" filename="textures/CourseplaySigns_mask.dds"/>
     <File fileId="2" filename="textures/CourseplaySigns_normal.dds"/>
     <File fileId="3" filename="textures/CourseplaySigns_specular.dds"/>
   </Files>
@@ -18,6 +19,7 @@
       <Texture fileId="1"/>
       <Normalmap fileId="2"/>
       <Glossmap fileId="3"/>
+      <Custommap name="mMaskMap" fileId="5"/>
     </Material>
   </Materials>
 

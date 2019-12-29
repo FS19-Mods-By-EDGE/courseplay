@@ -9,6 +9,7 @@
     <File fileId="6" filename="$data/shaders/buildingShader.xml"/>
     <File fileId="5" filename="colorShader.xml"/>
     <File fileId="4" filename="textures/CourseplaySigns_diffuse.dds"/>
+    <File fileId="7" filename="textures/CourseplaySigns_mask.dds"/>
     <File fileId="2" filename="textures/CourseplaySigns_normal.dds"/>
     <File fileId="3" filename="textures/CourseplaySigns_specular.dds"/>
   </Files>
@@ -19,13 +20,14 @@
       <Texture fileId="4"/>
       <Normalmap fileId="2"/>
       <Glossmap fileId="3"/>
+      <Custommap name="mMaskMap" fileId="7"/>
     </Material>
-    <Material name="line_mat" materialId="17" diffuseColor="0 0 0 1">
+    <Material name="line_mat" materialId="5" diffuseColor="0 0 0 1">
       <Normalmap fileId="2"/>
       <Glossmap fileId="3"/>
       <Emissivemap fileId="4"/>
     </Material>
-    <Material name="diamond_mat" materialId="18" diffuseColor="0 0 0 1" customShaderId="5">
+    <Material name="diamond_mat" materialId="6" diffuseColor="0 0 0 1" customShaderId="5">
       <Normalmap fileId="2"/>
       <Glossmap fileId="3"/>
       <Emissivemap fileId="4"/>
@@ -42,8 +44,8 @@
   </Dynamics>
 
   <Scene>
-    <Shape shapeId="1" name="Waypoint" clipDistance="150" nodeId="22" materialIds="18" castsShadows="true" receiveShadows="true">
-      <Shape shapeId="2" name="Line" clipDistance="100" nodeId="23" materialIds="17" castsShadows="true" receiveShadows="true"/>
+    <Shape shapeId="1" name="Waypoint" clipDistance="150" nodeId="11" materialIds="6" castsShadows="true" receiveShadows="true">
+      <Shape shapeId="2" name="Line" clipDistance="100" nodeId="12" materialIds="5" castsShadows="true" receiveShadows="true"/>
       <TransformGroup name="UnloadSign" nodeId="13">
         <Shape shapeId="3" name="unloadSign" clipDistance="250" nodeId="14" materialIds="4" castsShadows="true" receiveShadows="true"/>
       </TransformGroup>
