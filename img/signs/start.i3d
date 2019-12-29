@@ -2,26 +2,34 @@
 
 <i3D name="Start" version="1.6" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="http://i3d.giants.ch/schema/i3d-1.6.xsd">
   <Asset>
-    <Export program="GIANTS Editor 64bit" version="7.0.0"/>
+    <Export program="GIANTS Editor 64bit" version="8.1.0"/>
   </Asset>
 
   <Files>
-    <File fileId="2" filename="colorShader.xml" relativePath="true"/>
-    <File fileId="1" filename="normal.png" relativePath="true"/>
-    <File fileId="3" filename="start.png" relativePath="true"/>
+    <File fileId="6" filename="$data/shaders/buildingShader.xml"/>
+    <File fileId="5" filename="colorShader.xml"/>
+    <File fileId="4" filename="textures/CourseplaySigns_diffuse.dds"/>
+    <File fileId="2" filename="textures/CourseplaySigns_normal.dds"/>
+    <File fileId="3" filename="textures/CourseplaySigns_specular.dds"/>
   </Files>
 
 
   <Materials>
-    <Material name="line" materialId="9" ambientColor="1 1 1">
-      <Emissivemap fileId="1"/>
+    <Material name="startSign_mat" materialId="6" customShaderId="6">
+      <Texture fileId="4"/>
+      <Normalmap fileId="2"/>
+      <Glossmap fileId="3"/>
     </Material>
-    <Material name="diamond" materialId="7" ambientColor="1 1 1" customShaderId="2">
-      <Emissivemap fileId="1"/>
-      <CustomParameter name="diffuseColor" value="1 0.212 0 1"/>
+    <Material name="line_mat" materialId="17" diffuseColor="0 0 0 1">
+      <Normalmap fileId="2"/>
+      <Glossmap fileId="3"/>
+      <Emissivemap fileId="4"/>
     </Material>
-    <Material name="Sign" materialId="8" ambientColor="1 1 1" cosPower="20" specularColor="0.25 0.25 0.25">
-      <Texture fileId="3"/>
+    <Material name="diamond_mat" materialId="18" diffuseColor="0 0 0 1" customShaderId="5">
+      <Normalmap fileId="2"/>
+      <Glossmap fileId="3"/>
+      <Emissivemap fileId="4"/>
+      <CustomParameter name="shapeColor" value="1 0.212 0 1"/>
     </Material>
   </Materials>
 
@@ -34,11 +42,10 @@
   </Dynamics>
 
   <Scene>
-    <Shape shapeId="1" name="diamond" clipDistance="175" nodeId="15" materialIds="7" castsShadows="true" receiveShadows="true">
-      <Shape shapeId="2" name="Line" clipDistance="100" nodeId="16" materialIds="9" castsShadows="true" receiveShadows="true"/>
-      <TransformGroup name="StartSign" nodeId="17">
-        <Shape shapeId="3" name="Front" nodeId="18" materialIds="8" castsShadows="true" receiveShadows="true"/>
-        <Shape shapeId="4" name="Back" nodeId="19" materialIds="8" castsShadows="true" receiveShadows="true"/>
+    <Shape shapeId="1" name="Waypoint" clipDistance="150" nodeId="22" materialIds="18" castsShadows="true" receiveShadows="true">
+      <Shape shapeId="2" name="Line" clipDistance="100" nodeId="23" materialIds="17" castsShadows="true" receiveShadows="true"/>
+      <TransformGroup name="StartSign" nodeId="13">
+        <Shape shapeId="3" name="startSign" clipDistance="250" nodeId="14" materialIds="6" castsShadows="true" receiveShadows="true"/>
       </TransformGroup>
     </Shape>
   </Scene>
