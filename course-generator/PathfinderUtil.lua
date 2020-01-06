@@ -51,16 +51,17 @@ function PathfinderUtil.VehicleData:calculateSizeOfObjectList(vehicle, implement
         local rectangle = {
             dFront = rootToDirectionNodeDistance + implement.object.sizeLength / 2 + implement.object.lengthOffset + (buffer or 0),
             dRear = rootToDirectionNodeDistance - implement.object.sizeLength / 2 - implement.object.lengthOffset + (buffer or 0),
+            dLeft = implement.object.sizeWidth / 2,
+            dRight = -implement.object.sizeWidth / 2
         }
         -- for combine headers check the AI markers to get the unfolded size. Also, with these headers, sizeWidth may
         -- also include the header trailer, meaning it is bigger than the header itself which prevents pathfinding to succeed.
         if implement.object.spec_cutter and implement.object.getAIMarkers then
             local aiLeftMarker, aiRightMarker, aiBackMarker = implement.object:getAIMarkers()
-            rectangle.dLeft, _, _ = localToLocal(aiLeftMarker, AIDriverUtil.getDirectionNode(vehicle), 0, 0, 0)
-            rectangle.dRight, _, _ = localToLocal(aiRightMarker, AIDriverUtil.getDirectionNode(vehicle), 0, 0, 0)
-        else
-            rectangle.dLeft = implement.object.sizeWidth / 2
-            rectangle.dRight = -implement.object.sizeWidth / 2
+            if aiLeftMarker and aiRightMarker then
+                rectangle.dLeft, _, _ = localToLocal(aiLeftMarker, AIDriverUtil.getDirectionNode(vehicle), 0, 0, 0)
+                rectangle.dRight, _, _ = localToLocal(aiRightMarker, AIDriverUtil.getDirectionNode(vehicle), 0, 0, 0)
+            end
         end
         table.insert(rectangles, rectangle)
         self.dFront = math.max(self.dFront, rectangle.dFront)
@@ -161,18 +162,11 @@ function PathfinderUtil.findCollidingShapes(myCollisionData, yRot, vehicleData)
             center.x, center.y + 1, center.z,
             0, yRot, 0,
             vehicleData.dRight + vehicleData.dLeft, 1, vehicleData.dFront + vehicleData.dRear,
-            'collisionCallback', PathfinderUtil, AIVehicleUtil.COLLISION_MASK, true, true, true)
+            '', nil, AIVehicleUtil.COLLISION_MASK, true, true, true)
     if collidingShapes > 0 then
         --courseplay.debugFormat(7, 'x = %.1f, z = %.1f, %d', center.x, center.z, collidingShapes)
     end
     return collidingShapes
-end
-
-function PathfinderUtil.collisionCallback(self, transformId)
-    local object = g_currentMission:getNodeObject(transformId)
-    if object then
-        print(getName(object))
-    end
 end
 
 function PathfinderUtil.hasFruit(x, z, length, width)

@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="utf-8" standalone="no" ?>
 <modDesc descVersion="47">
-	<version>6.01.00354</version>
+	<version>6.01.00358</version>
 	<author><![CDATA[Courseplay.devTeam]]></author>
 	<title><!-- en=English de=German fr=French es=Spanish ru=Russian pl=Polish it=Italian br=Brazilian-Portuguese cs=Chinese(Simplified) ct=Chinese(Traditional) cz=Czech nl=Netherlands hu=Hungary jp=Japanese kr=Korean pt=Portuguese ro=Romanian tr=Turkish -->
 		<en>CoursePlay SIX</en>
 		<de>CoursePlay SIX</de>
 		<fr>CoursePlay SIX</fr>
 		<es>CoursePlay SIX</es>
-		<ru>КурсИгры SIX</ru>
+		<ru>CoursePlay SIX</ru>
 		<pl>CoursePlay SIX</pl>
 		<it>CoursePlay SIX</it>
 		<br>CoursePlay SIX</br>
@@ -50,7 +50,13 @@ Puede tener un montón de trabajadores manejando alrededor de su granja automát
 Courseplay no reemplaza el sistema de trabajo en el juego, crea un nuevo trabajador de IA que puede correr al lado de tus trabajadores agrícolas habituales.]]>
 		</es>
 		<ru>
-<![CDATA[Courseplay является модом для Farming Simulator 19. Он позволит Вам иметь много разных, самостоятельно движущихся транспортных средств, заставляя их выполнять полевые работы, разгружать комбайны, доставлять продукцию до точек продаж, заполнять бункер или прицепы ковшом, выравнивать и трамбовать силос и многое-многое другое...]]>
+<![CDATA[Courseplay - это мод для Farming Simulator 19. Он добавит в вашу игру совершенно новую систему работников с искусственным интеллектом, позволяя вам нанять помощников совершенно новым и удивительным способом!
+
+При использовании Courseplay вы можете настроить работников по всей вашей ферме так, что они смогут помочь вам с регулярными полевыми работами, разгрузкой вашего комбайна, продажей урожая или просто его доставкой на ваш склад. Нужно заполнить бункер? Вам поможет Courseplay!
+Вы можете иметь множество рабочих, которые ездят по вашей ферме, автоматически помогая вам. С небольшой настройкой Courseplay может заполнить бункер или прицеп лопатой, выровнять и утрамбовать силосную яму и многим другим ...
+Создайте свою полностью автоматизированную ферму, которая идеально подходит вашему стилю игры!
+
+Courseplay не заменяет игровую рабочую систему, он создает новый искусственный интеллект, который может работать бок о бок с обычными работниками фермы.]]>
 		</ru>
 		<pl>
 <![CDATA[Courseplay to modyfikacja dla gry Farming Simulator 19. Pozwala ona wielu pojazdom na poruszanie się w sposób całkowicie autonomiczny i automatyczny - pracować na polach, wyładowywać kombajny, dowozić produkty do punktów sprzedaży, wypełniać silosy przejazdowe lub naczepę samoładującą, wyrównywać czy ugniatać kiszonkę, oraz wiele więcej...]]>
@@ -94,6 +100,17 @@ Courseplay non sostituisce il sistema di gioco in gioco, ma crea un nuovo lavora
 		<action name="COURSEPLAY_SHOVEL_MOVE_TO_TRANSPORT_POSITION" axisType="HALF"  />
 		<action name="COURSEPLAY_SHOVEL_MOVE_TO_PRE_UNLOADING_POSITION" axisType="HALF"  />
 		<action name="COURSEPLAY_SHOVEL_MOVE_TO_UNLOADING_POSITION" axisType="HALF"  />
+    <action name="COURSEPLAY_EDITOR_TOGGLE" axisType="HALF"  />
+    <action name="COURSEPLAY_EDITOR_UNDO" axisType="HALF"  />
+    <action name="COURSEPLAY_EDITOR_SAVE" axisType="HALF"  />
+    <action name="COURSEPLAY_EDITOR_SPEED_INCREASE" axisType="HALF"  />
+    <action name="COURSEPLAY_EDITOR_SPEED_DECREASE" axisType="HALF"  />
+    <action name="COURSEPLAY_EDITOR_DELETE_WAYPOINT" axisType="HALF"  />
+    <action name="COURSEPLAY_EDITOR_DELETE_NEXT_WAYPOINT" axisType="HALF"  />    
+    <action name="COURSEPLAY_EDITOR_DELETE_TO_START" axisType="HALF"  />
+    <action name="COURSEPLAY_EDITOR_DELETE_TO_END" axisType="HALF"  />
+    <action name="COURSEPLAY_EDITOR_INSERT_WAYPOINT" axisType="HALF"  />
+    <action name="COURSEPLAY_EDITOR_CYCLE_WAYPOINT_TYPE" axisType="HALF"  />    
     </actions>
 
 	<inputBinding>
@@ -114,6 +131,39 @@ Courseplay non sostituisce il sistema di gioco in gioco, ma crea un nuovo lavora
         </actionBinding>
 		<actionBinding action="COURSEPLAY_DRIVENOW">
             <binding device="KB_MOUSE_DEFAULT" input="KEY_KP_9" />
+        </actionBinding>
+		<actionBinding action="COURSEPLAY_EDITOR_TOGGLE">
+            <binding device="KB_MOUSE_DEFAULT" input="e" />
+        </actionBinding>
+		<actionBinding action="COURSEPLAY_EDITOR_UNDO">
+            <binding device="KB_MOUSE_DEFAULT" input="z" />
+        </actionBinding>
+		<actionBinding action="COURSEPLAY_EDITOR_SAVE">
+            <binding device="KB_MOUSE_DEFAULT" input="KEY_f6" />
+        </actionBinding>
+  <actionBinding action="COURSEPLAY_EDITOR_SPEED_INCREASE">
+            <binding device="KB_MOUSE_DEFAULT" input="KEY_2" />
+        </actionBinding>
+ 	<actionBinding action="COURSEPLAY_EDITOR_SPEED_DECREASE">
+            <binding device="KB_MOUSE_DEFAULT" input="KEY_1" />
+        </actionBinding>
+  <actionBinding action="COURSEPLAY_EDITOR_DELETE_WAYPOINT">
+            <binding device="KB_MOUSE_DEFAULT" input="KEY_5" />
+        </actionBinding>
+  <actionBinding action="COURSEPLAY_EDITOR_DELETE_NEXT_WAYPOINT">
+            <binding device="KB_MOUSE_DEFAULT" input="KEY_6" />
+        </actionBinding>
+  <actionBinding action="COURSEPLAY_EDITOR_DELETE_TO_START">
+            <binding device="KB_MOUSE_DEFAULT" input="KEY_leftbracket" />
+        </actionBinding>
+  <actionBinding action="COURSEPLAY_EDITOR_DELETE_TO_END">
+            <binding device="KB_MOUSE_DEFAULT" input="KEY_rightbracket" />
+        </actionBinding>
+ 	<actionBinding action="COURSEPLAY_EDITOR_INSERT_WAYPOINT">
+            <binding device="KB_MOUSE_DEFAULT" input="KEY_7" />
+        </actionBinding>
+  <actionBinding action="COURSEPLAY_EDITOR_CYCLE_WAYPOINT_TYPE">
+            <binding device="KB_MOUSE_DEFAULT" input="KEY_8" />
         </actionBinding>
 		<!-- Possible to delete blank input bindings -->
 		<actionBinding action="COURSEPLAY_STOP_AT_END">
